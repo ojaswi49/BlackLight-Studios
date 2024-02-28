@@ -76,7 +76,7 @@
                     <td>{{ player.Name }}</td>
                     <td>{{ player.Score }}</td>
                     <td>{{ player.Country }}</td>
-                    <td>{{ player.TimeStamp }}</td>
+                    <td>{{ player.TimeStamp | date:'yyyy-MM-dd'}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -116,7 +116,7 @@
               <th>Name</th>
               <th>Score</th>
               <th>Nationality</th>
-              <th>Timestamp</th>
+              <th>Time</th>
             </tr>
           </thead>
           <tbody>

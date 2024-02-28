@@ -1,15 +1,10 @@
 app.controller("ctrl2",  function($scope, $http) {
     $scope.country = "";
     $scope.countryData = [];
-    $scope.defaultBoard = [];
     $scope.leaderboard = [];
     $scope.showModal = false;
-    $http.get("http://localhost:8000/get-leaderboard")
-    .then(function(response){
-      $scope.leaderboard = response.data.result;
-    });
     $scope.getCountryData = function() {
-      $http.post("http://localhost:8000/leaderboard-by-country", { country: $scope.country } )
+      $http.post("https://blacklight-studios-xv3w.onrender.com/leaderboard-by-country", { country: $scope.country } )
         .then(function(response) {
           $scope.countryData = response.data.leaderboard;
           $scope.showModal = true;
