@@ -33,10 +33,11 @@ app.get('/get-leaderboard', async (req, res) => {
     }
 });
 
-app.post('/leaderboard-by-country', async (req, res) => {
+app.get('/leaderboard-by-country', async (req, res) => {
   try
   {
-      const country = req.body.country;
+      const country = req.query.country;
+      console.log(country);
       if (!country) {
       res.status(400).json({ error: 'Country parameter is required' });
       return;
@@ -65,9 +66,9 @@ app.post('/leaderboard-by-country', async (req, res) => {
       res.status(500).json({message: "Server Error"});
   }
 });
-app.post('/user-rank', async (req, res) => {
+app.get('/user-rank', async (req, res) => {
   try {
-    const { userId } = req.body;
+    const userId  = req.query.userId;
     const result = await sql({
       query : `SELECT name, 
               (SELECT COUNT(DISTINCT score) 
